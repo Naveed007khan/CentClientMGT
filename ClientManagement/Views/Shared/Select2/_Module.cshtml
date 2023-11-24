@@ -1,0 +1,57 @@
+﻿@model ClientManagement.Helpers.ViewModels.SharedVM.BaseBriefVM<Guid>
+
+@{
+    var showLabel = ViewData["ShowLabel"] != null && !string.IsNullOrEmpty(ViewData["ShowLabel"].ToString()) ? bool.Parse(ViewData["ShowLabel"].ToString()) : true;
+    var accessAllowed = ViewData["AccessAllowed"] != null && !string.IsNullOrEmpty(ViewData["AccessAllowed"].ToString()) ? bool.Parse(ViewData["AccessAllowed"].ToString()) : false;
+    var elementId = ViewData["Id"] != null && !string.IsNullOrEmpty(ViewData["Id"].ToString()) ? ViewData["Id"].ToString() : "module-id";
+}
+
+
+
+<div class="form-group">
+    @if (showLabel == true)
+    {
+        <label class="form-label">Module</label>
+    }
+
+    @Html.DropDownListFor(model => model.Id, new List<SelectListItem>() {
+    new SelectListItem()
+    {
+    Value = (Model!=null&&Model.Id != new Guid())?Model.Id.ToString():"",
+    Text = (Model!=null&&Model.Id != new Guid())?Model.Name:"",
+    Selected = (Model!=null&&Model.Id != new Guid())?true:false,
+    }},
+    new
+    {
+    @id = elementId,
+    @class = "form-control disable-field",
+    data_val_required = Model.ErrorMessage,
+    data_val = Model.IsValidationEnabled.ToString().ToLower()
+    })
+    <input type="hidden" name="Module.Name" value="@Model.Name" />
+    <span asp-validation-for="Id" class="validation-invalid-label"></span>
+</div>
+<script src="~/js/CustomScripts/Select2Methods.js"></script>
+<script src="~/js/CustomScripts/reset-dependent-dropdowns.js"></script>
+<script>
+    //    var projectDependentDropDowns = ["target"];
+        $(function () {
+            var id = "#" +"@elementId";
+            var pageSize = 10;
+        var url = '/Module/GetItemsForSelect2';
+            var dataArray = function (params) {
+                params.page = params.page || 1;
+                return {
+                    prefix: params.term,
+                    pageSize: pageSize,
+                    pageNumber: params.page,
+                };
+            };
+            Select2AutoCompleteAjax(id, url, dataArray, pageSize, "Select Module");
+        //    onDropdownChangeResetDependentDropdown(id, projectDependentDropDowns);
+
+        });
+
+
+
+</script>

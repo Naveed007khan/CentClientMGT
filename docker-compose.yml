@@ -1,0 +1,13 @@
+version: '3.4'
+
+networks:
+  sajilnetwork:
+    name: sajilnetwork
+    external: true
+
+services:
+  clientmanagement:
+    image: ${DOCKER_REGISTRY-}clientmanagement
+    build:
+      context: .
+      dockerfile: ClientManagement/Dockerfile

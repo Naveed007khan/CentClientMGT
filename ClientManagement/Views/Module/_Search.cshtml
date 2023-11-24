@@ -1,0 +1,25 @@
+﻿@model ClientManagement.Helpers.ViewModels.ModuleSearchVM<Guid>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="Name" class="control-label form-label">Name</label>
+            <input asp-for="Name" class="form-control" type="search" placeholder="Search Module Name">
+            <span asp-validation-for="Name" class="validation-invalid-label"></span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="FromDate" class="control-label form-label">From Date</label>
+            <input asp-for="FromDate" class="form-control" type="date" name="FromDate">
+            <span asp-validation-for="FromDate" class="validation-invalid-label"></span>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="ToDate" class="control-label form-label">To Date</label>
+            <input asp-for="ToDate" class="form-control" type="date" name="ToDate">
+            <span asp-validation-for="ToDate" class="validation-invalid-label"></span>
+        </div>
+    </div>
+</div>

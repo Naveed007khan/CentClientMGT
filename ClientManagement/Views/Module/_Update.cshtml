@@ -1,0 +1,42 @@
+﻿@model ClientManagement.Helpers.ViewModels.ModuleVM<Guid>
+@{
+    var action = ViewData["Action"] != null ? ViewData["Action"].ToString() : "Create";
+}
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="Name" class="control-label form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="validation-invalid-label"></span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <partial name="~/Views/Shared/Select2/_Client.cshtml" for="Client" />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="LengthOfPermissionsPerModule" class="control-label form-label"></label>
+            <input asp-for="LengthOfPermissionsPerModule" class="form-control" />
+            <span asp-validation-for="LengthOfPermissionsPerModule" class="validation-invalid-label"></span>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label asp-for="ModuleNo" class="control-label form-label"></label>
+            <input asp-for="ModuleNo" class="form-control" />
+            <span asp-validation-for="ModuleNo" class="validation-invalid-label"></span>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label asp-for="Description" class="control-label form-label"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="validation-invalid-label"></span>
+        </div>
+    </div>
+
+
+</div>
+<input type="hidden" asp-for="Id" />

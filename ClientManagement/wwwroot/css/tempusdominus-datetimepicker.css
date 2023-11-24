@@ -1,0 +1,49 @@
+.bootstrap-datetimepicker-widget .table-condensed {
+    width: 100%;
+    text-align: center;
+}
+
+.bootstrap-datetimepicker-widget .picker-switch {
+    text-align: center;
+}
+
+.bootstrap-datetimepicker-widget .fa-clock-o {
+    font-size: 1.8em;
+}
+
+.datepicker-decades thead > tr > th,
+.datepicker-months thead > tr > th,
+.datepicker-years thead > tr > th {
+    display: inline-block;
+    margin: 0px 5px;
+}
+
+.datepicker-decades tbody > tr > td,
+.datepicker-years tbody > tr > td,
+.datepicker-months tbody > tr > td {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.datepicker-decades .decade,
+.datepicker-years .year,
+.datepicker-months .month {
+    width: 33.3%;
+    flex-flow: column;
+    font-size: 1.2em;
+}
+
+
+.bootstrap-datetimepicker-widget .day.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+.bootstrap-datetimepicker-widget .day.active {
+    color: #fff;
+    background: #03a9f4;
+}
+
+.bootstrap-datetimepicker-widget .day:hover {
+    background: #ccc;
+}

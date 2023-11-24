@@ -1,0 +1,12 @@
+﻿@using ClientManagement.Helpers.ViewModels.CRUD
+@model CrudListViewModel<Guid>
+@{ ViewBag.Title = Model.Title;
+    Layout = "~/Page/Shared/CustomTheme/_Layout.cshtml"; }
+<link href="~/css/bundles/datatable.css" rel="stylesheet" />
+<div class="card list-container">
+    @await Html.PartialAsync("~/Page/Shared/Crud/ListView/Common/_Header.cshtml", Model)
+    <div class="card-body list-content">
+
+    </div>
+</div>
+@await Html.PartialAsync("~/Page/Shared/Crud/ListView/Common/_Search.cshtml", Model)

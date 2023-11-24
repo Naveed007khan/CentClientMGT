@@ -1,0 +1,32 @@
+﻿@using ClientManagement.Helpers.ViewModels.CRUD
+@model CrudListViewModel<Guid>
+@{
+    ViewData["Title"] = Model.Title;
+}
+@*@if (Model.Parent?.Id != new Guid())
+{
+    <div class="row">
+        <div class="col-md-10">
+            <div class="mt-1">
+                <label class="control-label detail-section-heading">@Model.Parent?.Name</label>
+            </div>
+
+        </div>
+        <div class="col-md-2">
+            <div class="float-right">
+                <button class="btn-circle mr-1 mb-1" onclick="location.href = '@Model.ParentUrl'"><i class="fa fa-arrow-left" data-toggle="tooltip" title="Back"></i></button>
+            </div>
+        </div>
+    </div>
+}*@
+@await Html.PartialAsync("~/Views/Shared/Crud/ListView/DataTable/_IndexContent.cshtml", Model)
+@section Scripts {
+    <script src="~/js/bundles/data-table.js"></script>
+    <script src="~/js/bundles/data-table-buttons.js"></script>
+    <script>
+        $(function () {
+            debugger;
+        InitializeDataTables(@Html.Raw(Model.DatatableColumnsJson), '@Model.DataUrl');
+    });
+    </script>
+}

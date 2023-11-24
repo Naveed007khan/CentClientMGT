@@ -1,0 +1,56 @@
+﻿@model ClientManagement.Helpers.ViewModels.ModulePermissionVM<Guid>
+@{
+}
+<style>
+    .row-class {
+        width: 100%;
+    }
+
+    .modal-text-style {
+        color: #194619;
+        font-size: 14px;
+        font-family: Montserrat;
+    }
+</style>
+
+<div class="row row-class">
+    <div class="col-lg-4">
+        <div class="form-group">
+            <div><label asp-for="Name" class="control-label form-label font-weight-bolder">  </label></div>
+            <div class="modal-text-style">@Model.Name</div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <div><label asp-for="Client" class="control-label form-label font-weight-bolder">   </label></div>
+            <div class="modal-text-style">@Model.Client.Name</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label asp-for="Module" class="control-label form-label font-weight-bolder"></label>
+            <div class="modal-text-style">@Model.Module.Name</div>
+        </div>
+    </div>
+</div>
+<div class="row row-class">
+    <div class="col-lg-4">
+        <div class="form-group">
+            <div><label asp-for="PermissionId" class="control-label form-label font-weight-bolder"> </label></div>
+            <div class="modal-text-style">@Model.PermissionId</div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <div><label asp-for="Screen" class="control-label form-label font-weight-bolder"> </label></div>
+            <div class="modal-text-style">@Model.Screen</div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="form-group">
+            <div><label asp-for="Description" class="control-label form-label font-weight-bolder"> </label></div>
+            <div class="modal-text-style">@Model.Description</div>
+        </div>
+    </div>
+</div>
+<input type="hidden" asp-for="Id" />

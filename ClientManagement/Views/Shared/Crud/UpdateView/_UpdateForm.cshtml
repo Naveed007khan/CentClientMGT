@@ -1,0 +1,35 @@
+﻿@using ClientManagement.Helpers.ViewModels.CRUD
+@model CrudUpdateViewModel
+@{
+    var controllerName = Context.Request.Path.Value.Split("/")[1];
+    ViewData["Title"] = Model.Title;
+    ViewData["Name"] = Model.Name;
+}
+<div class="card" style=" background-color: #edeff0; border: none;">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <form asp-action="@Model.FormAction" enctype="@Model.FormType" id="@Model.FormId">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <fieldset class="mb-3">
+                        @await Html.PartialAsync(Model.UpdateViewPath, Model.UpdateModel, new ViewDataDictionary(ViewData))
+                    </fieldset>
+                    <div class="form-group">
+                        <div class="text-right">
+                            <a asp-action="Index" asp-controller="@controllerName" type="button" class="btn btn-dark">
+                                Cancel
+                                <i class="icon-cross3"></i>
+                            </a>
+                            <button type="submit" class="btn btn-success" id="submit-btn">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

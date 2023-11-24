@@ -1,0 +1,6 @@
+﻿add-migration IdentityInitialization -c ClientManagement.Data.ClientIdentityManagerContext -o Migrations/Identity
+update-database -Context ClientIdentityManagerContext
+
+
+add-migration ClientInitialization -c ClientManagement.Contexts.ClientContext -o Migrations/Client
+update-database -Context ClientContext

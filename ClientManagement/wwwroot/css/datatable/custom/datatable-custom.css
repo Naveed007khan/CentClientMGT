@@ -1,0 +1,10 @@
+﻿div.dt-buttons {
+    position: relative;
+    float: left;
+}
+/*.datatable-action:hover {
+    cursor: pointer;
+}*/
+.datatable-action {
+    margin-right: 1px !important;
+}

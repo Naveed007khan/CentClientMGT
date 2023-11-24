@@ -1,0 +1,16 @@
+﻿@model System.String
+@{
+    var currentValue = ViewData["Value"];
+}
+@*<div class="input-group">
+        <span class="input-group-prepend">
+            <span class="input-group-text"><i class="icon-calendar5"></i></span>
+        </span>
+        <input name="@ViewData["Key"]" value="@currentValue.ToString("dddd, dd MMMM, yyyy")" asp-format="dddd, dd mmm, yyyy" type="text" class="form-control datepicker pickadate-accessibility" placeholder="Select date&hellip;">
+    </div>*@
+
+<div class="form-group">
+    <label asp-for="@Model" class="control-label"></label>
+    <input asp-for="@Model" class="form-control" />
+    <span asp-validation-for="@Model" class="validation-invalid-label"></span>
+</div>

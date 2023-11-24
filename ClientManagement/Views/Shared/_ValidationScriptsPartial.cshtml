@@ -1,0 +1,15 @@
+﻿<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/js/CustomScripts/add_asterik_on_required.js"></script>
+<script>
+    $(function () {
+        var settngs = $.data($('form')[0], 'validator').settings;
+        settngs.onblur = function (element) { $(element).valid(); };
+    });
+    function ResetValidations(identifier) {
+        $(identifier).removeData("validator")
+            .removeData("unobtrusiveValidation")
+            .off("submit.validate click.validate focusin.validate focusout.validate keyup.validate invalid-form.validate");
+        $.validator.unobtrusive.parse(identifier);
+    }
+</script>

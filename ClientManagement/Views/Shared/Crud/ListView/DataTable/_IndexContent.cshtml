@@ -1,0 +1,18 @@
+﻿@using ClientManagement.Helpers.ViewModels.CRUD
+@model CrudListViewModel<Guid>
+<link href="~/css/bundles/datatable.css" rel="stylesheet" />
+
+<div class="list-container" style="border: none;">
+    @await Html.PartialAsync("~/Views/Shared/Crud/ListView/Common/_Header.cshtml", Model)
+    <div class="datatable-container" style="min-height:300px;">
+        <div class="datatable-scroll">
+            <table class="table datatable-basic dataTable" id="crud-list-table" role="grid" aria-describedby="DataTables_Table_0_info">
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+@await Html.PartialAsync("~/Views/Shared/Crud/ListView/Common/_Search.cshtml", Model)
+

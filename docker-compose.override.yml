@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  clientmanagement:
+    container_name: clientmanagement
+    restart: on-failure
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:ClientConnection=Server = sqldb; Database = IdentityServer; Persist Security Info = False; User ID = sa; Password = SwN1234@#5678; Integrated Security = False; TrustServerCertificate=True; Trusted_Connection = false;"
+      - "ConnectionStrings:ClientManagementConnection=Server = sqldb; Database = ClientManagerIdentity; Persist Security Info = False; User ID = sa; Password = SwN1234@#5678; Integrated Security = False; TrustServerCertificate=True; Trusted_Connection = false;"
+    ports:
+      - "1110:80"
+      - "1111:433"
+    networks:
+      - sajilnetwork
